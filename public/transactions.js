@@ -53,7 +53,7 @@ const Transactions = () => {
       });
     }
   
-    return(<>
+    return(<> 
   
       Receiver Email<br/>
       <input type="input" 
