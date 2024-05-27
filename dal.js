@@ -60,21 +60,6 @@ function update(email, amount){
     });    
 }
 
-// Update balance
-// function updateBalance(email, newBalance) {
-//     return new Promise((resolve, reject) => {
-//         const customers = db
-//             .collection('users')
-//             .updateOne(
-//                 { email: email },
-//                 { $set: { balance: newBalance } },
-//                 function(err, result) {
-//                     err ? reject(err) : resolve(result);
-//                 }
-//             );
-//     });
-// }
-
 // Get balance
 function getBalance(email) {
     return new Promise((resolve, reject) => {
@@ -97,6 +82,5 @@ function all(){
         });    
     })
 }
-
 
 module.exports = {create, findOne, find, update, getBalance, all};

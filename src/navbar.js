@@ -1,7 +1,6 @@
 var nshow = 0;
 
 var NavBar = () => {
-
   const handle = () => {
     nshow = 0
     ReactDOM.render(
@@ -11,7 +10,6 @@ var NavBar = () => {
   }
 
 if (nshow == 0){
-  
   return(
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">BadBank</a>
@@ -33,7 +31,6 @@ if (nshow == 0){
 }
 
 else {
-
   return(
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">BadBank</a>
@@ -42,9 +39,6 @@ else {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
-          {/* <li className="nav-item">
-            <a className="nav-link" href="#/CreateAccount/">Create Account</a>
-          </li> */}
           <li className="nav-item">
             <a className="nav-link" href="#/deposit/">Deposit</a>
           </li>
@@ -70,8 +64,5 @@ else {
       </div>
     </nav>
   );
-  
 }
 }
-
-// export var NavBar;

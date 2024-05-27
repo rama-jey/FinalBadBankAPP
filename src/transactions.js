@@ -3,7 +3,6 @@ const Transactions = () => {
     const [show, setShow]     = React.useState(true);
     const [status, setStatus] = React.useState('');  
     const [balance,setBalance] = React.useState(0);
-
     
     return (
       <Card
@@ -19,14 +18,14 @@ const Transactions = () => {
   
   const TransactionMsg = (props) => {
     return (<>
-      <h5>Success</h5>
+      <h5>Success processing your request!</h5>
       <button type="button" 
         className="btn btn-light" 
         onClick={() => {
             props.setShow(true);
             props.setStatus('');
         }}>
-          Send again
+          Send Money again
       </button>
     </>);
   } 
@@ -34,16 +33,14 @@ const Transactions = () => {
   const TransactionForm = (props) => {
     const [receiverEmail, setReceiverEmail]   = React.useState('');
     const [amount, setAmount] = React.useState(0);
-  
+
     const handle = () => {
       console.log("remail",receiverEmail)
       fetch(`/account/update/${dispEmail}/${receiverEmail}/${amount}`)
       .then((response) => (response.text()))
-      
       .then((data) => {
         console.log("data", amount)
         props.setStatus("Amount transferred: " + amount);
-        // props.setAmount(balance - amount);
         props.setShow(false);
         console.log('Deposit response:', data);
       })
@@ -54,7 +51,6 @@ const Transactions = () => {
     }
   
     return(<> 
-  
       Receiver Email<br/>
       <input type="input" 
         className="form-control" 

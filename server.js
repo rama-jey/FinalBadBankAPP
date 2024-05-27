@@ -5,6 +5,7 @@ var dal     = require('./dal.js');
 const e = require('express');
 
 // used to serve static files from public directory
+app.use(express.static('src'));
 app.use(express.static('public'));
 app.use(cors());
 
@@ -30,7 +31,6 @@ app.get('/account/create/:name/:email/:password', function (req, res) {
             }
         });
 });
-
 
 // login user 
 app.get('/account/login/:email/:password', function (req, res) {
@@ -69,7 +69,6 @@ app.get('/account/findOne/:email', function (req, res) {
             res.send(user);
     });
 });
-
 
 // update - deposit/withdraw amount
 app.get('/account/update/:dispEmail/:amount', function (req, res) {
@@ -115,13 +114,12 @@ app.post('/account/updateBalance/:dispEmail/:balance', (req, res) => {
     });
 });
 
-
  // get balance after transaction
  app.get('/account/update/:dispEmail/:receiverEmail/:amount', function (req, res) {
     const dispEmail = req.params.dispEmail;
     const receiverEmail = req.params.receiverEmail;
     const amount = req.params.amount;
-    var recieverBalance = 0;
+    var receiverBalance = 0;
 
     console.log("dispEmail:", dispEmail);
     console.log("receiverEmail:", receiverEmail);
@@ -129,10 +127,9 @@ app.post('/account/updateBalance/:dispEmail/:balance', (req, res) => {
 
     dal.getBalance(receiverEmail)
         .then((rbalance) => {
-            recieverBalance = rbalance;
-            
+            receiverBalance = rbalance;
         })
-    console.log("rbalance", recieverBalance)
+    console.log("rbalance", receiverBalance)
     // Get the current balance of dispEmail
     dal.getBalance(dispEmail) 
         .then((balance) => {
@@ -150,23 +147,6 @@ app.post('/account/updateBalance/:dispEmail/:balance', (req, res) => {
             res.status(400).send(`Transaction failed: ${err.message}`);
         });
 });
-
-// //verify token at the root route
-// app.get ('/auth', function(req,res){
-//     //read token from header
-//     const idToken = req.headers.authorization
-//     console.log('header:',idToken);
-// })
-
-// //verify token
-// admin.auth().verifyIdToken(idToken)
-//     .then (function(decodedToken){
-//         console.log("decodedToken:", decodedToken);
-//         res.send('Authentication Success!');
-//     }).catch (function(error){
-//         console.log("error:",error);
-//         res.send('Authentication Fail!');
-//     });
 
 var port = 3000;
 app.listen(port);

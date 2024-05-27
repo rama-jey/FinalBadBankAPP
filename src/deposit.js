@@ -4,9 +4,9 @@ const Deposit = () => {
   const [status, setStatus] = React.useState('');  
   
   return (
-   
     <Card
       bgcolor="warning"
+      txtcolor="black"
       header="Deposit"
       status={status}
       body={show ? 
@@ -14,12 +14,11 @@ const Deposit = () => {
         (<DepositMsg setShow={setShow} setStatus={setStatus}/>)}
     />
   )
-   
 }
 
 const DepositMsg = (props) => {
   return (<>
-    <h5>Success</h5>
+    <h5>Success processing your request!</h5>
     <button type="button" 
       className="btn btn-light" 
       onClick={() => {
@@ -42,7 +41,6 @@ const DepositForm = (props) => {
         props.setStatus("Amount deposited: " + amount);
         props.setShow(false);
         console.log('Deposit response:', data);
-        
       })
       .catch((error) => {
         props.setStatus('Deposit failed');
@@ -51,13 +49,6 @@ const DepositForm = (props) => {
   }
 
   return(<>
-
-    {/* Email<br/>
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter email" 
-      value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/> */}
- 
     Amount<br/>
     <input type="number" 
       className="form-control" 
@@ -68,6 +59,5 @@ const DepositForm = (props) => {
     <button type="button" 
       className="btn btn-light" 
       onClick={handle}>Deposit</button>
-
   </>);
 }

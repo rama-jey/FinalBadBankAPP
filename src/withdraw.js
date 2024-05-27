@@ -4,7 +4,7 @@ const Withdraw = () => {
 
   return (
     <Card
-      bgcolor="success"
+      bgcolor="danger"
       header="Withdraw"
       status={status}
       body={show ? 
@@ -16,7 +16,7 @@ const Withdraw = () => {
 
 const WithdrawMsg = (props) => {
   return(<>
-    <h5>Success</h5>
+    <h5>Success processing your request!</h5>
     <button type="submit" 
       className="btn btn-light" 
       onClick={() => {
@@ -29,7 +29,6 @@ const WithdrawMsg = (props) => {
 }
 
 const WithdrawForm = (props) => {
-  //const [email, setEmail]   = React.useState('');
   const [amount, setAmount] = React.useState('');
 
   function handle(){
@@ -50,14 +49,6 @@ const WithdrawForm = (props) => {
 
 
   return(<>
-
-    {/* Email<br/>
-    <input type="input" 
-      className="form-control" 
-      placeholder="Enter email" 
-      value={email} 
-      onChange={e => setEmail(e.currentTarget.value)}/><br/> */}
-
     Amount<br/>
     <input type="number" 
       className="form-control" 
@@ -70,6 +61,5 @@ const WithdrawForm = (props) => {
       onClick={handle}>
         Withdraw
     </button>
-
   </>);
 }

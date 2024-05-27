@@ -5,10 +5,9 @@ var dispEmail = ''
 const Login = () => {
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');    
-
   return (
     <Card
-      bgcolor="secondary"
+      bgcolor="success"
       header="Login"
       status={status}
       body={show ? 
@@ -22,15 +21,13 @@ const Login = () => {
 const LoginMsg = (props) => {
   return (
     <>
-      
-      <h5>Welcome back! {props.loggedInUser}</h5>
-      {/* Would you like to:
+      <h5>Welcome! {dispEmail}</h5><br/>
+      <div class="button-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
       <a href="#/deposit/">
-        <button type="button" className="btn btn-light">Deposit Money</button>
-      </a>
+      <button type="submit" className="btn btn-light mr-2">Deposit Money</button></a>
       <a href="#/withdraw/">
-        <button type="button" className="btn btn-light" >Withdraw Money</button>
-      </a> */}
+      <button type="submit" className="btn btn-light ml-2" >Withdraw Money</button></a>
+      </div>
     </>
   );
 }
@@ -40,10 +37,7 @@ const LoginForm = (props) => {
   const [password, setPassword] = React.useState('');
   const [success, setSuccess] = React.useState('false');
 
-
   const handle = () => {
-    
-    
     const auth  = firebase.auth();
     auth.signInWithEmailAndPassword(email,password)
        .then((userCredential) => {
@@ -54,7 +48,6 @@ const LoginForm = (props) => {
             document.getElementById('root')
           );
           setSuccess(true);
-          // setLoggedInUser(email);
           console.log(userCredential);
         })
         .catch((error) => {
@@ -74,14 +67,10 @@ const LoginForm = (props) => {
             console.log('err:', text);
         }
     });
-
-   
   }
-
 
   return (
   <form>
-
     Email<br/>
     <input type="input" 
       className="form-control" 
@@ -98,10 +87,6 @@ const LoginForm = (props) => {
       required
       value={password} 
       onChange={e => setPassword(e.currentTarget.value)}/><br/>
-
     <button type="submit" className="btn btn-light" onClick={handle}>Login</button>
-   
   </form>);
 }
-
-// export default Login;

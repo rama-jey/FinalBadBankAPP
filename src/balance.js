@@ -16,7 +16,7 @@ const Balance = () => {
 
 const BalanceMsg = (props) => {
   return(<>
-    <h5>Success</h5>
+    <h5>Success processing your request!</h5>
     <button type="button" 
       className="btn btn-light" 
       onClick={() => {
@@ -29,16 +29,12 @@ const BalanceMsg = (props) => {
 }
 
 const BalanceForm = (props) => {
-
-
   const handle = () => {
-
-  
     console.log("props", props)
     fetch(`/account/getBalance/${dispEmail}`)
       .then((response) => response.json())
       .then((data) => {
-        props.setStatus(`Balance: $ ${data.balance}`);
+        props.setStatus(`You have a balance of: $ ${data.balance}`);
         props.setShow(false);
         console.log('Balance response:', data);
       })
@@ -49,13 +45,11 @@ const BalanceForm = (props) => {
   }
 
   return (<>
-    
     <button type="button" 
       className="btn btn-light" 
       onClick={handle}>
         Check Balance
     </button>
-
   </>);
 }
 

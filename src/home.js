@@ -3,8 +3,8 @@ const Home = () => {
     <Card
       txtcolor="black"
       header="BadBank Landing Module"
-      title="Welcome to the bank"
-      text="You can move around using the navigation bar."
+      title="Welcome to the bank!"
+      text="Please login to access all the modules of our bank"
       body={(<img src="bank.png" className="img-fluid" alt="Responsive image"/>)}
     />
   );  

@@ -1,7 +1,6 @@
 const admin = require ('firebase-admin');
 
 //firebase service account pk
-
    const type = "service_account";
    const project_id = "bad-bank-f947a";
    const private_key_id = "6aaa2cd296bb333da428e5929616deb7ec17f3c9";
@@ -30,4 +29,3 @@ const admin = require ('firebase-admin');
     }),
   });
   
-  //module.exports = admin;

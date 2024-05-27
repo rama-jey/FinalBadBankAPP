@@ -2,7 +2,6 @@ const AllData = () => {
     const [data, setData] = React.useState('');    
 
     React.useEffect(() => {
-        
         // fetch all accounts from API
         fetch('/account/all')
             .then(response => response.json())
@@ -10,7 +9,6 @@ const AllData = () => {
                 console.log(data);
                 setData(JSON.stringify(data));                
             });
-
     }, []);
 
     return (<>
@@ -19,4 +17,3 @@ const AllData = () => {
     </>);
 }
 
-// export default AllData;
