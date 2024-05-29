@@ -1,7 +1,7 @@
 
 const Spa = () => {
   return (
-    <HashRouter basename='public'>
+    <HashRouter>
       <div>
         <NavBar/>        
         <UserContext.Provider value={{users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
