@@ -148,6 +148,6 @@ app.post('/account/updateBalance/:dispEmail/:balance', (req, res) => {
         });
 });
 
-var port = 3000;
+var port = 3002;
 app.listen(port);
 console.log('Running on port: ' + port);
