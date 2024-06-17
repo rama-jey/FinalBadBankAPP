@@ -1,12 +1,12 @@
 //initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyC9OqgPThVnlJQgElAMW-W5x-NAptTAukg",
+  apiKey: "APIKEY",
   authDomain: "bad-bank-f947a.firebaseapp.com",
-  databaseURL: "https://bad-bank-f947a-default-rtdb.firebaseio.com",
+  databaseURL: "https://bad-bank.firebaseio.com",
   projectId: "bad-bank-f947a",
   storageBucket: "bad-bank-f947a.appspot.com",
-  messagingSenderId: "119088265939",
-  appId: "1:119088265939:web:2d6cb383004cf1ff1cb226"
+  messagingSenderId: "SENDERID",
+  appId: "APP_ID"
 };
 
 firebase.initializeApp(firebaseConfig);
