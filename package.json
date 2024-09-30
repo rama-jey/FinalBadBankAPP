@@ -16,7 +16,7 @@
     "babel-cli": "^6.26.0",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.4",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "firebase": "^10.12.1",
     "firebase-admin": "^12.1.1",
     "lowdb": "^1.0.0",
